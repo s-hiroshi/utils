@@ -1,0 +1,29 @@
+{
+    "name": "s-hiroshi/utils",
+    "license": "MIT",
+    "description": "Utility command script.",
+    "require": {
+        "symfony/console": "^4.2",
+        "symfony/event-dispatcher": "^4.2",
+        "symfony/yaml": "^4.2"
+    },
+    "autoload": {
+      "psr-4": {
+        "SH\\utils\\": "src/"
+      }
+    },
+    "autoload-dev": {
+      "psr-4": {
+        "SH\\utils\\": [
+          "tests/",
+          "tests/Fake"
+        ]
+      }
+    },
+    "authors": [
+        {
+            "name": "Hiroshi Sawai",
+            "email": "info@info-town.jp"
+        }
+    ]
+}
