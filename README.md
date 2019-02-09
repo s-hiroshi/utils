@@ -14,8 +14,21 @@ $ php -d phar.readonly=0 ./bin/box.phar build
 ## 使用例
 
 
+### sh:utils:utc2jst
+
+UTCをJSTへ変換します。
+
+```shell
+$ php console.php sh:utils:utc2jst "20190101010101"
+// 2019-01-01 10:01:01
+$ php console.php sh:utils:utc2jst "2019-01-01 01:01:01"
+// 2019-01-01 10:01:01
+$ php console.php sh:utils:utc2jst "2019-01-01T01:01:01.000Z"
+```
+
 ### sh:utils:text2json
 
+Unicode文字へ変換します。
 
 ````shell
 $ php console.php sh:utils:text2json <ファイルパス> 
