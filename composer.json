@@ -20,6 +20,16 @@
         ]
       }
     },
+    "scripts": {
+      "test": [
+        "./vendor/bin/phpunit"
+      ],
+      "build": [
+        "rm -rf ./dist",
+        "mkdir -p ./dist",
+        "php -d phar.readonly=0 ./bin/box.phar build"
+      ]
+    },
     "authors": [
         {
             "name": "Hiroshi Sawai",
