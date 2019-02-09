@@ -10,7 +10,7 @@ class FileListTest extends TestCase
     private $command;
     protected function setUp()
     {
-        $this->command = new UtilsCommand();
+        $this->command = new UTC2JSTCommand();
     }
 
     /**

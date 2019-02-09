@@ -23,7 +23,7 @@ class UtilsCommand extends Command
         $this
             ->setName('sh:utils:test')
             ->setDescription('command of Utility.')
-            ->addArgument('test_arg', InputArgument::REQUIRED, 'test argument', null);
+            ->addArgument('test', InputArgument::REQUIRED, 'test argument', null);
     }
 
     /**
@@ -32,7 +32,7 @@ class UtilsCommand extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $out = $input->getArgument('test_arg');
+        $out = $input->getArgument('test');
         $output->writeln($out);
     }
 
