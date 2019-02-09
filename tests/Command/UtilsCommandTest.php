@@ -5,7 +5,7 @@ namespace SH\Utils\Command;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Console\Tester\CommandTester;
 
-class FileListTest extends TestCase
+class UtilsCommandTest extends TestCase
 {
     private $command;
     protected function setUp()
