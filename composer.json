@@ -7,6 +7,9 @@
         "symfony/event-dispatcher": "^4.2",
         "symfony/yaml": "^4.2"
     },
+    "require-dev": {
+      "phpunit/phpunit": "^7.4" 
+    },
     "autoload": {
       "psr-4": {
         "SH\\Utils\\": "src/"
