@@ -19,7 +19,7 @@ class FileListTest extends TestCase
     public function testCommand()
     {
         $tester = $this->execute(['test_arg' => 'Hello']);
-        $this->assertEquals("Hello" . PHP_EOL, $tester->getDisplay());
+        $this->assertEquals(0 , $tester->getStatusCode());
     }
     /**
      * @param array $input
