@@ -1,0 +1,9 @@
+{
+  "alias": "utils.phar",
+  "chmod": "0755",
+  "compactors": [],
+  "directories": ["src", "vendor"],
+  "main": "console.php",
+  "output": "build/utils.phar",
+  "stub": true
+}
