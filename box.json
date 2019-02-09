@@ -4,6 +4,6 @@
   "compactors": [],
   "directories": ["src", "vendor"],
   "main": "console.php",
-  "output": "build/utils.phar",
+  "output": "dist/utils.phar",
   "stub": true
 }

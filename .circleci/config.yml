@@ -1,0 +1,40 @@
+version: 2
+jobs:
+  build:
+    docker:
+    - image: circleci/php:7.1-jessie-node-browsers
+    working_directory: ~/working
+    steps:
+    - checkout
+    - restore_cache:
+        key: composer-v1-{{ checksum "composer.json" }}
+    - run: composer install --no-interaction --prefer-dist
+    - save_cache:
+        key: composer-v1-{{ checksum "composer.json" }}
+        paths:
+        - bin
+        - vendor
+    - run: composer test
+  release:
+    docker:
+    - image: circleci/php:7.1-jessie-node-browsers
+    working_directory: ~/working
+    steps:
+    - checkout
+    - restore_cache:
+        key: composer-v1-{{ checksum "composer.json" }}
+    - run: composer install --no-interaction --prefer-dist --no-dev
+    - run: composer build
+    - run: ./bin/ghr v$(./dist/utils.phar --version | cut -d ' ' -f 2) ./dist
+
+workflows:
+  version: 2
+  test_and_release:
+    jobs:
+    - build
+    - release:
+        requires:
+        - build
+        filters:
+          branches:
+            only: master
