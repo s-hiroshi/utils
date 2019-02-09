@@ -23,7 +23,7 @@ class UTC2JSTCommand extends Command
         $this
             ->setName('sh:utils:utc2jst')
             ->setDescription('Convert UTC to JST.')
-            ->addArgument('utc', InputArgument::REQUIRED, 'yyyymmddhhiiss', null);
+            ->addArgument('utc', InputArgument::REQUIRED, 'UTC time. example 20190101010101 or 2019-01-01 01:01:01 or 2019-01-01T01:01:01.000Z', null);
     }
 
     /**
@@ -33,10 +33,9 @@ class UTC2JSTCommand extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        list($y1, $y2, $m, $d, $h, $i, $s) = str_split($input->getArgument('utc'), 2);
-        $utc = sprintf('%s%s-%s-%sT%s:%s:%s.000Z', $y1, $y2, $m, $d, $h, $i, $s);
-        $utc = new \DateTimeImmutable($utc);
-        $jst = $utc->setTimeZone(new \DateTimeZone('Asia/Tokyo'));
-        $output->writeln($jst->format('Y-m-d H:i:s') . PHP_EOL);
+        $utcTimeStamp = strtotime($input->getArgument('utc'));
+        $utcTime = new \DateTimeImmutable(date('Y-m-d H:i:s', $utcTimeStamp));
+        $jstTime = $utcTime->setTimeZone(new \DateTimeZone('Asia/Tokyo'));
+        $output->writeln($jstTime->format('Y-m-d H:i:s') . PHP_EOL);
     }
 }
