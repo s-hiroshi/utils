@@ -9,12 +9,12 @@
     },
     "autoload": {
       "psr-4": {
-        "SH\\utils\\": "src/"
+        "SH\\Utils\\": "src/"
       }
     },
     "autoload-dev": {
       "psr-4": {
-        "SH\\utils\\": [
+        "SH\\Utils\\": [
           "tests/",
           "tests/Fake"
         ]
