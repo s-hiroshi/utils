@@ -37,7 +37,6 @@ class UTC2JSTCommand extends Command
         $utc = sprintf('%s%s-%s-%sT%s:%s:%s.000Z', $y1, $y2, $m, $d, $h, $i, $s);
         $utc = new \DateTimeImmutable($utc);
         $jst = $utc->setTimeZone(new \DateTimeZone('Asia/Tokyo'));
-        echo $jst->format('Y-m-d H:i:s') . PHP_EOL;
+        $output->writeln($jst->format('Y-m-d H:i:s') . PHP_EOL);
     }
-
 }
